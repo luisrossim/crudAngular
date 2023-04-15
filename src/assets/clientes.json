@@ -1,7 +1,26 @@
 [   
-    { "idCliente": "1",
-    "name": "Luis",
-    "idade": 21,
-    "cidade": "Colatina"
+    {   
+        "idCliente": "1",
+        "name": "Luis",
+        "idade": 21,
+        "cidade": "Colatina"
+    },
+    {
+        "idCliente": "2",
+        "name": "Amanda",
+        "idade": 23,
+        "cidade": "Colatina"
+    },
+    {
+        "idCliente": "3",
+        "name": "Lua",
+        "idade": 17,
+        "cidade": "Vitória"
+    },
+    {
+        "idCliente": "4",
+        "name": "Dalva",
+        "idade": 32,
+        "cidade": "Nova Venécia"
     }
 ]

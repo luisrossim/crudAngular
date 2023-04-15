@@ -1,33 +1,43 @@
 <mat-card>
     <mat-toolbar color="primary">Lista de Clientes</mat-toolbar>
-    <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
     
-        <!-- ID Column -->
-        <ng-container matColumnDef="idCliente">
-            <th mat-header-cell *matHeaderCellDef> ID </th>
-            <td mat-cell *matCellDef="let cliente"> {{ cliente.idCliente }} </td>
-        </ng-container>
+    <div *ngIf="clientes$ | async as clientes; else loadingspinner">
+        <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="idCliente">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let cliente"> {{ cliente.idCliente }} </td>
+            </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let cliente"> {{ cliente.name }} </td>
-        </ng-container>
-    
-        <!-- Idade Column -->
-        <ng-container matColumnDef="idade">
-        <th mat-header-cell *matHeaderCellDef> Idade </th>
-        <td mat-cell *matCellDef="let cliente"> {{ cliente.idade }} </td>
-        </ng-container>
-    
-        <!-- Cidade Column -->
-        <ng-container matColumnDef="cidade">
-        <th mat-header-cell *matHeaderCellDef> Cidade </th>
-        <td mat-cell *matCellDef="let cliente"> {{ cliente.cidade }} </td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let cliente"> {{ cliente.name }} </td>
+            </ng-container>
+        
+            <!-- Idade Column -->
+            <ng-container matColumnDef="idade">
+                <th mat-header-cell *matHeaderCellDef> Idade </th>
+                <td mat-cell *matCellDef="let cliente"> {{ cliente.idade }} </td>
+            </ng-container>
+        
+            <!-- Cidade Column -->
+            <ng-container matColumnDef="cidade">
+                <th mat-header-cell *matHeaderCellDef> Cidade </th>
+                <td mat-cell *matCellDef="let cliente"> {{ cliente.cidade }} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+        <ng-template #loadingspinner>
+            <div class="loading-spinner">
+                <mat-spinner style="width: 50px;"></mat-spinner>
+            </div>
+        </ng-template>
+
 </mat-card>
   

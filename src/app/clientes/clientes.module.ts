@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppMaterialModule } from '../shared/app-material/app-material.module';
 
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClientesComponent } from './clientes/clientes.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,9 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [
     CommonModule,
     ClientesRoutingModule,
-    MatTableModule,
-    MatCardModule,
-    MatToolbarModule
+    AppMaterialModule,
+    SharedModule
   ]
 })
 
