@@ -14,7 +14,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 export class ClientesComponent {
 
   clientes$: Observable<Cliente[]>;
-  displayedColumns = ['idCliente', 'name', 'idade', 'cidade'];
+  displayedColumns = ['idCliente', 'name', 'idade', 'cidade', 'categoria'];
 
 
 

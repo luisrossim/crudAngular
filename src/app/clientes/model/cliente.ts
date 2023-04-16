@@ -3,4 +3,5 @@ export interface Cliente {
     name: string;
     idade: number;
     cidade: string;
+    categoria: string;
 }

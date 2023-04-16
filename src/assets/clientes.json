@@ -3,24 +3,35 @@
         "idCliente": "1",
         "name": "Luis",
         "idade": 21,
-        "cidade": "Colatina"
+        "cidade": "Colatina",
+        "categoria": "Estudante"
     },
     {
         "idCliente": "2",
         "name": "Amanda",
         "idade": 23,
-        "cidade": "Colatina"
+        "cidade": "Colatina",
+        "categoria": "Empregado(a)"
     },
     {
         "idCliente": "3",
         "name": "Lua",
         "idade": 17,
-        "cidade": "Vitória"
+        "cidade": "Vila Velha",
+        "categoria": "Estudante"
     },
     {
         "idCliente": "4",
         "name": "Dalva",
         "idade": 32,
-        "cidade": "Nova Venécia"
+        "cidade": "Nova Venécia",
+        "categoria": "Desempregado(a)"
+    },
+    {
+        "idCliente": "5",
+        "name": "João",
+        "idade": 74,
+        "cidade": "Vitória",
+        "categoria": "Aposentado(a)"
     }
 ]
