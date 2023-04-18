@@ -22,4 +22,8 @@ export class ClientesService {
     );
   }
 
+  cadastrar(registro: Partial<Cliente>) {
+    return this.http.post<Cliente>(this.API, registro);
+  }
+
 }

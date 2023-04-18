@@ -2,7 +2,7 @@
     <mat-toolbar color="primary">Lista de Clientes</mat-toolbar>
     
     <div *ngIf="clientes$ | async as clientes; else loadingspinner">
-        <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+        <table mat-table [dataSource]="clientes" class="mat-elevation-z8" aria-label="Lista clientes">
         
             <!-- ID Column -->
             <ng-container matColumnDef="idCliente">
@@ -36,6 +36,25 @@
                 </td>
             </ng-container>
         
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button color="primary" aria-label="Adicionar cliente" (click)="onAdicionar()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </mat-header-cell>
+
+                <mat-cell *matCellDef="let cliente">
+                    <button mat-icon-button color="accent" aria-label="Editar cliente">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button mat-icon-button color="warn" aria-label="Remover cliente">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

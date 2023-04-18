@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-toolbar color="primary">
+        <span>Cadastrar cliente</span>
+    </mat-toolbar>
+
+    <mat-card-content>
+        <form [formGroup]="formulario" class="min-width">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Idade</mat-label>
+                <input matInput formControlName="idade">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Cidade</mat-label>
+                <input matInput formControlName="cidade">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Categoria</mat-label>
+                <mat-select formControlName="categoria">
+                    <mat-option value="null"> </mat-option>
+                    <mat-option value="Estudante">Estudante</mat-option>
+                    <mat-option value="Empregado(a)">Empregado(a)</mat-option>
+                    <mat-option value="Desempregado(a)">Desempregado(a)</mat-option>
+                    <mat-option value="Aposentado(a)">Aposentado(a)</mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-stroked-button color="primary" class="btn-cancelar" (click)="onCancel()">Cancelar</button>
+        <button mat-raised-button color="primary" class="btn-cadastrar" (click)="onSubmit()">Cadastrar</button>
+      </mat-card-actions>
+</mat-card>
