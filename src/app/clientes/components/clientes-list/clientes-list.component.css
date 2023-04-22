@@ -1,0 +1,12 @@
+mat-table {
+    overflow: auto;
+    max-height: 400px;   
+}
+
+.coluna-def {
+    flex: 0 0 130px;
+}
+
+.coluna-def-header {
+    margin: 0 auto;
+}

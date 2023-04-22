@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Cliente } from '../model/cliente';
-import { ClientesService } from '../services/clientes.service';
+import { Cliente } from '../../model/cliente';
+import { ClientesService } from '../../services/clientes.service';
 import { Observable, catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
@@ -15,9 +15,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ClientesComponent {
 
   clientes$: Observable<Cliente[]>;
-  displayedColumns = ['idCliente', 'name', 'idade', 'cidade', 'categoria', 'actions'];
-
-
 
 
   constructor(
@@ -34,11 +31,13 @@ export class ClientesComponent {
     )
   }
 
+
   onError(errorMensagem: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMensagem
     });
   }
+
 
   onAdicionar() {
     //this.router.navigate(['clientes/novo']);

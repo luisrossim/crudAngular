@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { ClientesService } from '../services/clientes.service';
+import { ClientesService } from '../../services/clientes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -30,7 +30,6 @@ export class ClientesFormComponent {
   }
 
   onSubmit(){
-    //console.log(this.formulario.value);
     this.service.cadastrar(this.formulario.value).subscribe(resultado => this.onSuccess(), error => this.onError());
   }
 
@@ -47,4 +46,19 @@ export class ClientesFormComponent {
   onError(){
     this._snackBar.open('Erro ao cadastrar cliente', '', {duration: 3000});
   }
+
+
+  
+
+  /* teste
+  console.log(this.formulario.value)
+  validar(){
+    if(this.formulario.value.name == '' || 'null'){
+      this.onError();
+      return -1;
+    } else {
+      return 1;
+    }
+  }
+  */
 }

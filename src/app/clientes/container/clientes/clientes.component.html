@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-toolbar color="primary">Lista de Clientes</mat-toolbar>
+
+    <div class="coluna-flex mat-elevation-z8">
+        <app-clientes-list *ngIf="clientes$ | async as clientes; else loadingspinner" 
+        [clientes] = "clientes" (add)="onAdicionar()"></app-clientes-list>    
+    
+        <ng-template #loadingspinner>
+            <div class="loading-spinner">
+                <mat-spinner style="width: 50px;"></mat-spinner>
+            </div>
+        </ng-template>
+    </div>
+</mat-card>
+  
