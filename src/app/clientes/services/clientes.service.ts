@@ -46,5 +46,10 @@ export class ClientesService {
   private editar(registro: Partial<Cliente>) {
     return this.http.put<Cliente>(`${this.API}/${registro.idCliente}`, registro).pipe(first());
   }
+
+
+  public remover(id: string) {
+    return this.http.delete(`${this.API}/${id}`).pipe(first());
+  }
   
 }

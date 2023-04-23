@@ -5,7 +5,8 @@
         <app-clientes-list *ngIf="clientes$ | async as clientes; else loadingspinner" 
         [clientes] = "clientes" 
         (add)="onAdicionar()"
-        (edit)="onEditar($event)"></app-clientes-list>    
+        (edit)="onEditar($event)"
+        (delete)="onRemover($event)"></app-clientes-list>    
     
         <ng-template #loadingspinner>
             <div class="loading-spinner">
