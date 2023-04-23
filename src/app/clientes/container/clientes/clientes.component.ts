@@ -44,4 +44,9 @@ export class ClientesComponent {
     this.router.navigate(['novo'], {relativeTo: this.route});
   }
 
+
+  onEditar(cliente: Cliente) {
+    this.router.navigate(['editar', cliente.idCliente], {relativeTo: this.route});
+  }
+
 }

@@ -7,6 +7,7 @@ import { first, take, tap, delay } from 'rxjs';
   providedIn: 'root'
 })
 
+
 export class ClientesService {
 
   private readonly API = 'api/clientes';
@@ -22,8 +23,28 @@ export class ClientesService {
     );
   }
 
-  cadastrar(registro: Partial<Cliente>) {
-    return this.http.post<Cliente>(this.API, registro);
+
+  buscarPorID(id: string) {
+    return this.http.get<Cliente>(`${this.API}/${id}`);
   }
 
+
+  salvar(registro: Partial<Cliente>) {
+    // verificar se o registro ja possui um id, se nao ira criar.
+    //console.log(registro);
+    if( registro.idCliente ) {
+      return this.editar(registro);
+    }
+    return this.cadastrar(registro);
+  }
+
+
+  private cadastrar(registro: Partial<Cliente>) {
+    return this.http.post<Cliente>(this.API, registro).pipe(first());
+  }
+
+  private editar(registro: Partial<Cliente>) {
+    return this.http.put<Cliente>(`${this.API}/${registro.idCliente}`, registro).pipe(first());
+  }
+  
 }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ClientesService } from '../../services/clientes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from '../../model/cliente';
 
 @Component({
   selector: 'app-clientes-form',
@@ -13,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class ClientesFormComponent {
   formulario = this.formBuilder.group({
+    idCliente: [''],
     name: [''],
     idade: [1],
     cidade: [''],
@@ -22,15 +24,22 @@ export class ClientesFormComponent {
   //NonNullableFormBuilder valida os campos para not null
   constructor(private formBuilder: NonNullableFormBuilder, 
     private service: ClientesService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private location: Location,
     private router: Router,
     private route: ActivatedRoute) {
-
+      const cliente: Cliente = this.route.snapshot.data['cliente'];
+      this.formulario.setValue({
+        idCliente: cliente.idCliente,
+        name: cliente.name,
+        idade: cliente.idade,
+        cidade: cliente.cidade,
+        categoria: cliente.categoria
+      });
   }
 
   onSubmit(){
-    this.service.cadastrar(this.formulario.value).subscribe(resultado => this.onSuccess(), error => this.onError());
+    this.service.salvar(this.formulario.value).subscribe(resultado => this.onSuccess(), error => this.onError());
   }
 
   onCancel(){
@@ -39,12 +48,12 @@ export class ClientesFormComponent {
   }
 
   private onSuccess(){
-    this._snackBar.open('Cliente cadastrado com sucesso!', '', {duration: 3000});
+    this.snackBar.open('Cliente cadastrado com sucesso!', '', {duration: 3000});
     this.onCancel();
   }
 
   onError(){
-    this._snackBar.open('Erro ao cadastrar cliente', '', {duration: 3000});
+    this.snackBar.open('Erro ao cadastrar cliente', '', {duration: 3000});
   }
 
 

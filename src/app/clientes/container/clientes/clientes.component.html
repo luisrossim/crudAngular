@@ -3,7 +3,9 @@
 
     <div class="coluna-flex mat-elevation-z8">
         <app-clientes-list *ngIf="clientes$ | async as clientes; else loadingspinner" 
-        [clientes] = "clientes" (add)="onAdicionar()"></app-clientes-list>    
+        [clientes] = "clientes" 
+        (add)="onAdicionar()"
+        (edit)="onEditar($event)"></app-clientes-list>    
     
         <ng-template #loadingspinner>
             <div class="loading-spinner">

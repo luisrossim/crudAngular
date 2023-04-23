@@ -42,7 +42,7 @@
         </mat-header-cell>
 
         <mat-cell *matCellDef="let cliente" class="coluna-def">
-            <button mat-icon-button color="accent" aria-label="Editar cliente">
+            <button mat-icon-button color="accent" aria-label="Editar cliente" (click)="onEditar(cliente)">
                 <mat-icon>edit</mat-icon>
             </button>
 
