@@ -1,0 +1,8 @@
+.btns {
+    justify-content: space-between;
+    padding: 1.2em;
+}
+
+.btn-nao {
+    padding: 0 5em;
+}

@@ -20,7 +20,3 @@ mat-card-actions {
     justify-content: space-between;
     padding: 1.2em;
 }
-
-.btn-cancelar {
-    background-color: rgba(0, 26, 255, 0.1);
-}

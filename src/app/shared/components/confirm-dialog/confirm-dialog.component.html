@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+    <p>{{ data }}</p>
+</div>
+<div mat-dialog-actions class="btns">
+    <button mat-stroked-button color="warn" class="btn-nao" (click)="onConfirm(false)">Não</button>
+    <button mat-raised-button color="primary" class="btn-sim" (click)="onConfirm(true)">Sim</button>
+</div>
